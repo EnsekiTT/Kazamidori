@@ -13,11 +13,14 @@ if(window.DeviceOrientationEvent){
     var compassHeading;
     if(event.webkitCompassHeading){
       compassHeading = event.webkitCompassHeading;
+      compassAccuracy = event.webkitCompassAccuracy;
     }
     else{
       compassHeading = event.alpha;
+      compassAccuracy = event.absolute;
     }
-    document.getElementById('heading').innerHTML = 'コンパスの向き： ' + compassHeading;
+    document.getElementById('heading').innerHTML = compassHeading;
+    document.getElementById('headingAccuracy').innerHTML = compassAccuracy;
     rotateArrow(targetHeading, compassHeading);
     setLength(targetLength);
   });
