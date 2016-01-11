@@ -7,13 +7,18 @@ window.addEventListener('devicemotion', function(e) {
 		document.getElementById('motion').textContent = [acc.x.toFixed(3), acc.y.toFixed(3), acc.y.toFixed(3)];
 });
 
-var arrowAngle = 0;
-window.ondeviceorientation = function(event) {
-	var compassHeading = event.webkitCompassHeading;
-	document.getElementById('heading').innerHTML = 'コンパスの向き： ' + compassHeading;
-  rotateArrow(targetHeading, compassHeading);
-  setLength(targetLength);
 
-	var compassAccuracy = event.webkitCompassAccuracy;
-	document.getElementById('headingAccuracy').innerHTML = 'コンパスの正確性： ' + compassAccuracy;
+if(window.DeviceOrientationEvent){
+  window.addEventListener('deviceorientation', function(event){
+    var compassHeading;
+    if(event.webkitCompassHeading){
+      compassHeading = event.webkitCompassHeading;
+    }
+    else{
+      compassHeading = event.alpha;
+    }
+    document.getElementById('heading').innerHTML = 'コンパスの向き： ' + compassHeading;
+    rotateArrow(targetHeading, compassHeading);
+    setLength(targetLength);
+  });
 }
