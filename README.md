@@ -4,10 +4,13 @@
 kazamidori.jsを読み込む
 
 ```javascript
-positionDetect(1);
 //id="show_arrow" に矢印表示
 createArrow();
 //位置情報の取得開始
+positionDetect(1);
+//位置情報の取得停止
+positionDetect(0);
+//方位情報の取得開始
 startOrientationEvent();
 ```
 
