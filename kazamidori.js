@@ -17,11 +17,11 @@ var watchID;
 //				Longitude [deg]
 //				Altitude [m]
 var myPosition = {lat: 0.0,lon: 0.0, alt: 0.0}
-var friendPosition = {lat: 0.0, lon: 0.0, alt: 0.0} //新宿東口交番前
+var friendPosition = {lat: 0.0, lon: 0.0, alt: 0.0}
 
 createArrow();
 startOrientationEvent();
-positionSet(139.701166, 35.692027, 37.0)
+positionSet(35.692027, 139.701166, 37.0) //サンプル新宿東口交番前
 
 function positionSet(lat, lon, alt){
   friendPosition.lat = lat;
