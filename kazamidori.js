@@ -16,16 +16,16 @@ var watchID;
 // Position: Latitude [deg]
 //				Longitude [deg]
 //				Altitude [m]
-var myPosition = {lon: 0.0, lat: 0.0, alt: 0.0}
-var friendPosition = {lon: 0.0, lat: 0.0, alt: 0.0} //新宿東口交番前
+var myPosition = {lat: 0.0,lon: 0.0, alt: 0.0}
+var friendPosition = {lat: 0.0, lon: 0.0, alt: 0.0} //新宿東口交番前
 
 createArrow();
 startOrientationEvent();
 positionSet(139.701166, 35.692027, 37.0)
 
-function positionSet(lon, lat, alt){
-  friendPosition.lon = lon;
+function positionSet(lat, lon, alt){
   friendPosition.lat = lat;
+  friendPosition.lon = lon;
   friendPosition.alt = alt;
 }
 
@@ -68,7 +68,7 @@ function positionDetect(io){
 				ael_text += "Length:" + ael.L + "<br>";
 		targetHeading = ael.A;
 		targetLength = ael.L;
-		document.getElementById("Shinjuku").innerHTML = ael_text;
+		document.getElementById("Friend").innerHTML = ael_text;
 	}
 
 	function errorCallback(error) {
